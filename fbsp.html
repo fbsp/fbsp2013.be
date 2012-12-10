@@ -1,0 +1,43 @@
+<head>
+    <title>fbsp</title>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<a href="http://www.hiboox.fr/go/images/divers/logo,bde8d010d98ef5a63ceda6097d7d97d1.jpg.html" alt="Hébergé par Hiboox.fr"><img src="http://images4.hiboox.com/images/4812/bde8d010d98ef5a63ceda6097d7d97d1.jpg" border="0" class="center" ></a>
+
+<p style="margin-left:30%">Make a proposition for FBSP 2013!</p>
+
+{{> form }}
+{{> comments }}
+
+</body>
+
+<template name="form">
+    <p style="margin-left:30%">I am:</p>
+    <form name="input" style="margin-left:30%; font-family:'Montserrat', sans-serif; letter-spacing:4px;color:black; font-size:80%">
+    <input type="checkbox" name="status" > A student<br>
+    <input type="checkbox" name="status" > A former student<br>
+    <input type="checkbox" name="status" > A teacher<br>
+    <input type="checkbox" name="status" > A professional<br>
+    <br>
+    More details (age/school/job/discipline) <br><br> <input type="text" name="details" id="details" value=" "><br><br>
+    <input id="status" type="checkbox" name="status" > Make that information public<br>
+    <br>
+    <form name="input" action="html_form_action.asp" method="get">
+    email adress (not public) <br><br><input type="text" id=email name="Email" value=" "><br>
+    <br>
+    <input id="submit" type="submit" value="Submit">
+</form>
+</template>
+
+<template name="comments">
+    {{#each comments}}
+    <ul>
+        <li>{{ status }}</li>
+        <li>{{ details }}</li>
+        <li>{{ public }}</li>
+        <li>{{ email }}</li>
+    </ul>
+    {{/each}}
+</template>

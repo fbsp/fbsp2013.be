@@ -1,0 +1,17 @@
+body {
+    background-color:white;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing:4px;color:black;
+    font-size: 13px;
+}
+
+h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-size: 32px;}
+
+p {font-family:'Montserrat', sans-serif; letter-spacing:4px;color:black; font-size:80%;}
+
+p.bottommargin {margin-bottom:25%;}
+
+.center {
+    margin-left:30%;
+    width:40%;
+}
