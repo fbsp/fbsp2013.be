@@ -9,7 +9,8 @@ if (Meteor.isClient) {
   Template.form.events({
     'click input#submit' : function () {
       if (typeof console !== 'undefined')
-        Comments.insert({   status: "student",
+        Comments.insert({   proposition: $('#proposition').val(),
+                            status: "student",
                             details: $('#details').val(),
                             public: true,
                             email: $('#email').val()

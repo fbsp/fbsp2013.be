@@ -1,4 +1,7 @@
 body {
+    background-image: url("http://img15.hostingpics.net/pics/238195COVER.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     background-color:white;
     font-family:'Montserrat', sans-serif;
     letter-spacing:4px;color:black;
@@ -14,4 +17,17 @@ p.bottommargin {margin-bottom:25%;}
 .center {
     margin-left:30%;
     width:40%;
+    
+p.pos_fixed_right {
+    position:fixed;
+    bottom:10%;
+    right:10%;
+}
+    
+p.pos_fixed_left {
+    position:fixed;
+    top:10%;
+    left:10%;
+} 
+    
 }

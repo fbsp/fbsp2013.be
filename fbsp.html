@@ -8,14 +8,21 @@
 
 <p style="margin-left:30%">Make a proposition for FBSP 2013!</p>
 
+
 {{> form }}
 {{> comments }}
 
 </body>
 
+<p class="pos_fixed_right"; style=text-align:right>→</p>
+<p class="pos_fixed_left"; style=text-align:left>←</p>
+
 <template name="form">
-    <p style="margin-left:30%">I am:</p>
     <form name="input" style="margin-left:30%; font-family:'Montserrat', sans-serif; letter-spacing:4px;color:black; font-size:80%">
+    <textarea rows="10" cols="30" id="proposition">
+    
+    </textarea>
+    <p>I am:</p>
     <input type="checkbox" name="status" > A student<br>
     <input type="checkbox" name="status" > A former student<br>
     <input type="checkbox" name="status" > A teacher<br>
@@ -34,6 +41,7 @@
 <template name="comments">
     {{#each comments}}
     <ul>
+        <li>{{ proposition }}</li>
         <li>{{ status }}</li>
         <li>{{ details }}</li>
         <li>{{ public }}</li>
@@ -41,3 +49,11 @@
     </ul>
     {{/each}}
 </template>
+
+
+
+
+
+
+
+
