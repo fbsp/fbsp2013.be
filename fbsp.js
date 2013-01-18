@@ -29,4 +29,9 @@ Meteor.startup(function () {
   Backbone.history.start({pushState: true});
 });
 
+
+Meteor.startup(function () {
+    $('a').smoothScroll();
+})
+
 }
