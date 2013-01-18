@@ -1,34 +1,32 @@
-Comments = new Meteor.Collection("comments");
+if (Meteor.is_client) {
 
-if (Meteor.isClient) {
+var Router = Backbone.Router.extend({
+  
+  routes: { '': 'main',
+  ':page': 'main',
+  },
+  main: function(page) {
+    page = page ? page : "main";
+    Session.set('currentPage', page);
+    var frag = Meteor.render(function () {
+                            var i = Template[page] ? Template[page]() : "";
+                            return i; });
+    $('div#container').html(frag)
+  },
 
-  Template.comments.comments = function () {
-    return Comments.find({});
-  };
+});
 
-  Template.form.events({
-    'click input#submit' : function () {
-      if (typeof console !== 'undefined')
-        Comments.insert({   proposition: $('#proposition').val(),
-                            status: "student",
-                            details: $('#details').val(),
-                            public: true,
-                            email: $('#email').val()
-        });
-    return false;
-    }
-  });
+/*Template.fbsp.renderPage = function() {
+    var page = Session.get('currentPage');
+    var frag = Meteor.render(function () {
+                            var i = Template[page] ? Template[page]() : "";
+                            return i; });
+    return frag
+    }*/
 
-}
+var app = new Router;
+Meteor.startup(function () {
+  Backbone.history.start({pushState: true});
+});
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    if (Comments.find().count() === 0) {
-        Comments.insert({   status: "student",
-                            details: "There are no comments yet. this is a default.",
-                            public: true,
-                            email: "eric@example.com"
-        });
-    }
-  });
 }
