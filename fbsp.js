@@ -32,6 +32,8 @@ Meteor.startup(function () {
 
 Meteor.startup(function () {
     $('a').smoothScroll();
+
 })
+
 
 }

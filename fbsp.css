@@ -13,6 +13,21 @@ h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-si
 p {font-family:'Montserrat', sans-serif; color:black; font-size:190%;}
 footer {font-family:'Montserrat', sans-serif; color:black; font-size:100%;}
 
+#news
+{
+position: fixed;
+width: 40%;
+top: 20%;
+left:30%;
+background-image:url(background-trans.png);
+}
+
+#news img {
+    width: 100%;
+  
+}
+
+
 .center
 {
 display: block;
@@ -29,11 +44,10 @@ span.dropt {text-decoration: none;}
 span.dropt:hover {text-decoration: none;}
 span.dropt span {position: absolute; left: -9999px;
   margin: 20px 0 0 0px; padding: 3px 3px 3px 3px;
-  border-style:solid; border-color:black; border-width:1px; z-index: 6;}
+  z-index: 6;}
 span.dropt:hover span {left: 2%;} 
 span.dropt span {position: absolute; left: -9999px;
-  margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; 
-  border-style:solid; border-color:black; border-width:1px;}
+  margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; }
 span.dropt:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;} 
 
     
