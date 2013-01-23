@@ -33,6 +33,15 @@ Meteor.startup(function () {
 Meteor.startup(function () {
     $('a').smoothScroll();
 
+$('html').click(function() {
+    $("#news").hide()
+});
+
+$('#news').click(function(event){
+   event.stopPropagation();
+});
+
+
 })
 
 
