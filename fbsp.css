@@ -10,7 +10,7 @@ a:hover {color:#FFFF00; text-decoration: none}
 
 h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-size: 32px;}
 
-p {font-family:'Montserrat', sans-serif; color:black; font-size:190%;}
+p {font-family:'Montserrat', sans-serif; color:black; font-size:190%; margin-left:2%; margin-right:3%}
 footer {font-family:'Montserrat', sans-serif; color:black; font-size:100%;}
 
 #news
@@ -28,12 +28,25 @@ background-image:url(background-trans.png);
 }
 
 
+.legend 
+{ 
+font-family:'Montserrat', sans-serif;
+font-size: 100%; 
+text-align: center;
+}
+
 .center
 {
 display: block;
 margin: 0 auto; 
 height: 600px;
 width: 600px;
+}
+
+.center2
+{
+display: block;
+margin: 0 auto; 
 }
 
 .va-middle {
