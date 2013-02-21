@@ -4,9 +4,9 @@ body {
     color:black;
 }
 
-a:link {color:#FFFF00; text-decoration: none}
-a:visited {color:#FFFF00; text-decoration: none}
-a:hover {color:#FFFF00; text-decoration: none} 
+a:link {color:#FFF000; text-decoration: none;}
+a:visited {color:#FFF000; text-decoration: none;}
+a:hover {color:#FFF000; text-decoration: none;} 
 
 h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-size: 32px;}
 
@@ -23,10 +23,26 @@ background-image:url(background-trans.png);
 }
 
 #news img {
-    width: 100%;
-  
+    width: 100%;  
 }
 
+#collective-editing {
+    position: relative;
+    margin-left: 1.3%; 
+}
+
+#collective-editing div.comment, #collective-editing form.comment-form {
+    position: absolute;   
+}
+
+#collective-editing form.comment-form {
+    width: 170px;    
+}
+
+.red  {
+    color: #ff2a2a; 
+    text-decoration: none;    
+}
 
 .legend 
 { 
@@ -34,6 +50,34 @@ font-family:'Montserrat', sans-serif;
 font-size: 100%; 
 text-align: center;
 }
+
+.text
+{ 
+font-family:'Montserrat', sans-serif;
+font-size: 50%; 
+}
+
+
+.bloc {
+	width:170px ;
+	background-color : white;	
+	border: 2px solid #000000;
+	padding: 15px;
+	}
+
+.comment
+{ 
+font-family:'Montserrat', sans-serif;
+font-size: 100%; 
+color: #FFF000
+}
+
+.comment-form
+{
+	background-color : white;	
+	border: 2px solid #000000;
+	padding: 10px;
+	}
 
 .center
 {
@@ -49,12 +93,19 @@ display: block;
 margin: 0 auto; 
 }
 
+.doublepages
+{
+display: block;
+margin-left: 1px; 
+}
+
+
 .va-middle {
 vertical-align: middle;
 }
 
-span.dropt {text-decoration: none;color:#FFFF00}
-span.dropt:hover {text-decoration: none;color:#FFFF00}
+span.dropt {text-decoration: none;color:#FFF000}
+span.dropt:hover {text-decoration: none;color:#FFF000}
 span.dropt span {position: absolute; left: -9999px;
   margin: 20px 0 0 0px; padding: 3px 3px 3px 3px;
   z-index: 6;}
