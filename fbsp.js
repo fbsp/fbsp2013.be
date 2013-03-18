@@ -88,10 +88,10 @@ Meteor.startup(function () {
     $('a').smoothScroll();
 
 $('html').click(function() {
-    $("#news").hide()
+    $(".news-box").hide()
 });
 
-$('#news').click(function(event){
+$('.news-box').click(function(event){
    event.stopPropagation();
 });
 

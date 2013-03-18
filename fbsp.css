@@ -13,17 +13,69 @@ h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-si
 p {font-family:'Montserrat', sans-serif; color:black; font-size:190%; margin-left:2%; margin-right:3%}
 footer {font-family:'Montserrat', sans-serif; color:black; font-size:100%;}
 
+
+.news-box {
+position: fixed;
+}
+
+.news-box img {
+width: 100%;
+}
+
 #news
 {
-position: fixed;
 width: 40%;
 top: 13.5%;
 left:30%;
 background-image:url(background-trans.png);
 }
 
-#news img {
-    width: 100%;  
+#news2a
+{
+width: 35%;
+top: 10%;
+left:12%;
+background-image:url(background-trans.png);
+}
+
+#news2b
+{
+width: 35%;
+top: 30%;
+right:12%;
+background-image:url(background-trans.png);
+}
+
+#news2c
+{
+width: 3%;
+top: 75%;
+left:35%;
+background-image:url(background-trans.png);
+}
+
+#news3a
+{
+width: 30%;
+top: 5%;
+left:5%;
+background-image:url(background-trans.png);
+}
+
+#news3b
+{
+width: 30%;
+top:20%;
+right:5.5%;
+background-image:url(background-trans.png);
+}
+
+#news3c
+{
+width: 30%;
+top: 40%;
+left:35%;
+background-image:url(background-trans.png);
 }
 
 #collective-editing {
@@ -64,6 +116,7 @@ font-size: 50%;
 	border: 2px solid #000000;
 	padding: 15px;
 	}
+	
 
 .comment
 { 
@@ -104,6 +157,7 @@ margin-left: 1px;
 vertical-align: middle;
 }
 
+
 span.dropt {text-decoration: none;color:#FFF000}
 span.dropt:hover {text-decoration: none;color:#FFF000}
 span.dropt span {position: absolute; left: -9999px;
@@ -114,5 +168,15 @@ span.dropt span {position: absolute; left: -9999px;
   margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; }
 span.dropt:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;} 
 
+
+span.box {text-decoration: none;color:#FFF000}
+span.box:hover {text-decoration: none;color:#FFF000}
+span.box span {position: relative; left: -9999px;
+  margin: 20px 0 0 0px; padding: 3px 3px 3px 3px;
+  z-index: 6;}
+span.box:hover span {left: 2%;} 
+span.box span {position: relative; left: -9999px;
+  margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; }
+span.box:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;}
     
 }
