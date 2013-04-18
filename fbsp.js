@@ -52,6 +52,7 @@ Meteor.startup(function () {
 
 
 Template.collective_editing.comments = function () {
+    // ici on va chercher dans le base de données:
     return Comments.find();
   };
   

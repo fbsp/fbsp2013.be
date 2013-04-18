@@ -1,17 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family:'Montserrat';
+    src: url("font/Montserrat-Regular.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Charis';
+    src: url("font/CharisSIL-R.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Charis';
+    src: url("font/CharisSIL-I.ttf");
+    font-style: italic;
+}
+
 body {
-  
-    font-family:'Montserrat', sans-serif;
+    font-family:'Montserrat';
+    font-size: 30px;
     color:black;
+    margin: 23px;
 }
 
 a:link {color:#FFF000; text-decoration: none;}
 a:visited {color:#FFF000; text-decoration: none;}
 a:hover {color:#FFF000; text-decoration: none;} 
 
-h1 {font-family:'Montserrat', sans-serif; letter-spacing:5px;color:black;font-size: 32px;}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
 
-p {font-family:'Montserrat', sans-serif; color:black; font-size:190%; margin-left:2%; margin-right:3%}
-footer {font-family:'Montserrat', sans-serif; color:black; font-size:100%;}
+h1, h2, h3, h4, h5, h6 {
+    font-family:'Montserrat';
+    font-size: 30px;
+}
+
+p {
+    font-family:'Montserrat';
+    font-size: 30px; 
+}
+
+footer {
+    font-family:'Montserrat'; 
+    color:black; 
+    font-size:15px;
+    }
+
+i {
+    font-family: 'Charis';
+    font-style: italic;
+    font-size: 110%;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    line-height: 15px;
+}
+
+
+@media screen {
+    .print-only {
+        display:none;
+    }
+}
+
+@media print {
+    .screen-only {
+        display:none;
+    }
+}
+
+.folio {
+    page-break-before: always;
+    text-align: center;
+    margin-bottom: 15px;
+}
 
 
 .news-box {
@@ -135,10 +202,17 @@ color: #FFF000
 .center
 {
 display: block;
-margin: 0 auto; 
-height: 600px;
+margin: 0 auto;
 width: 600px;
 }
+
+.center-pictures
+{
+display: block;
+margin: 0 auto;
+width: 800px;
+}
+
 
 .center2
 {
@@ -178,5 +252,23 @@ span.box:hover span {left: 2%;}
 span.box span {position: relative; left: -9999px;
   margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; }
 span.box:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;}
+
+
+div.dropt2 div {
+    position: relative;
+    left: -9999px;
+    padding: 1px 3px 1px 4px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    max-width:250px;
+}
+div.dropt2:hover div {
+    position: relative;
+    top: -10px;
+    left: 55%;
+    background: #ffffff;
+    z-index:6;
+}
     
 }
