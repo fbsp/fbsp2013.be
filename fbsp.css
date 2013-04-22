@@ -172,8 +172,9 @@ text-align: center;
 
 .text
 { 
-font-family:'Montserrat', sans-serif;
-font-size: 50%; 
+font-family:'Montserrat';
+font-size: 20px; 
+color: #000000;
 }
 
 
@@ -187,9 +188,9 @@ font-size: 50%;
 
 .comment
 { 
-font-family:'Montserrat', sans-serif;
-font-size: 100%; 
-color: #FFF000
+font-family:'Montserrat';
+font-size: 18px; 
+/*color: #FFF000;*/
 }
 
 .comment-form
@@ -197,6 +198,8 @@ color: #FFF000
 	background-color : white;	
 	border: 2px solid #000000;
 	padding: 10px;
+	font-family:'Montserrat';
+font-size: 18px; 
 	}
 
 .center
