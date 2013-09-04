@@ -61,6 +61,7 @@ i {
     line-height: 15px;
 }
 
+/*print / pdf stylesheet*/
 
 @media screen {
     .print-only {
@@ -80,6 +81,7 @@ i {
     margin-bottom: 15px;
 }
 
+/*over the main page images*/
 
 .news-box {
 position: fixed;
@@ -117,33 +119,36 @@ background-image:url(background-trans.png);
 {
 width: 3%;
 top: 75%;
-left:35%;
+left: 35%;
 background-image:url(background-trans.png);
 }
 
 #news3a
 {
-width: 30%;
-top: 5%;
-left:5%;
+width: 35%;
+top: 20%;
+left: 7%;
 background-image:url(background-trans.png);
 }
 
 #news3b
 {
-width: 30%;
-top:20%;
-right:5.5%;
+width: 35%;
+top: 7%;
+left: 53%;
 background-image:url(background-trans.png);
 }
 
 #news3c
 {
-width: 30%;
-top: 40%;
-left:35%;
+width: 35%;
+bottom: 5%;
+left: 49%;
 background-image:url(background-trans.png);
 }
+
+/*collective page styles TO BE CLEANED!! */
+
 
 #collective-editing {
     position: relative;
@@ -165,16 +170,17 @@ background-image:url(background-trans.png);
 
 .legend 
 { 
-font-family:'Montserrat', sans-serif;
-font-size: 100%; 
-text-align: center;
+    font-family:'Montserrat', sans-serif;
+    font-size: 100%; 
+    text-align: center;
 }
 
+/* for the texts in the comments (page collective-editing)*/
 .text
 { 
-font-family:'Montserrat';
-font-size: 20px; 
-color: #000000;
+    font-family:'Montserrat';
+    font-size: 18px; 
+    color: #000000;
 }
 
 
@@ -233,8 +239,7 @@ margin-left: 1px;
 .va-middle {
 vertical-align: middle;
 }
-
-
+//ON MOUSEOVER
 span.dropt {text-decoration: none;color:#FFF000}
 span.dropt:hover {text-decoration: none;color:#FFF000}
 span.dropt span {position: absolute; left: -9999px;
@@ -258,6 +263,7 @@ span.box:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;}
 
 
 div.dropt2 div {
+    font-size: 22px;
     position: relative;
     left: -9999px;
     padding: 1px 3px 1px 4px;
@@ -273,5 +279,5 @@ div.dropt2:hover div {
     background: #ffffff;
     z-index:6;
 }
-    
+
 }
