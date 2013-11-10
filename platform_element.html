@@ -1,0 +1,30 @@
+<template name="platform_element">
+
+    <div id="container" class="clearfix">
+        {{> toolbox }}
+    </div>
+
+
+<!-- Fait appel à la function JavaScript Template.collective_editing.comments -->
+{{#with element}}
+<div class="box-element">
+    <p class="title">{{ title }}</p>
+       <p class="text">{{{ content }}}</p>
+       <p class="text">{{ author }}</p>
+       <p class="text">{{ category }}</p>
+</div>
+{{/with}}
+
+
+{{#each relatedElements}}
+<a href="/platform/{{ category }}/{{ slug }}">
+<div class="box {{ category }}">
+    <p class="title">{{ title }}</p>
+       <p class="text">{{{ content }}}</p>
+       <p class="text">{{ author }}</p>
+       <p class="text">{{ category }}</p>
+</div></a>
+{{/each}}
+
+
+</template>

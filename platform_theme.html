@@ -1,0 +1,21 @@
+<template name="platform_theme">
+
+    <div id="container" class="clearfix">
+        {{> toolbox }}
+    </div>
+
+
+<!-- Fait appel à la function JavaScript Template.collective_editing.comments -->
+{{#each elements}}
+<a href="/platform/{{ category }}/{{ slug }}">
+<div class="box {{ category }}">
+    <p class="title">{{ title }}</p>
+       <p class="text">{{{ content }}}</p>
+       <p class="text">{{ author }}</p>
+       <p class="text">{{ category }}</p>
+</div></a>
+{{/each}}
+
+
+
+</template>

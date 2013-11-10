@@ -5,26 +5,20 @@
 
 @font-face {
     font-family:'Montserrat';
-    src: url("font/Montserrat-Regular.ttf");
+    src: url('Montserrat-Regular.ttf');
+    src: url('montserrat-regular-webfont.eot');
+    src: url('montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('montserrat-regular-webfont.woff') format('woff'),
+         url('montserrat-regular-webfont.ttf') format('truetype'),
+         url('montserrat-regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family:'Charis';
-    src: url("font/CharisSIL-R.ttf");
-    font-style: normal;
-}
-
-@font-face {
-    font-family:'Charis';
-    src: url("font/CharisSIL-I.ttf");
-    font-style: italic;
 }
 
 body {
-    font-family:'Montserrat';
+    font-family: 'Montserrat';
     font-size: 30px;
-    color:black;
+    color: black;
     margin: 23px;
 }
 
@@ -50,29 +44,10 @@ footer {
     font-family:'Montserrat'; 
     color:black; 
     font-size:15px;
-    }
-
-i {
-    font-family: 'Charis';
-    font-style: italic;
-    font-size: 110%;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    line-height: 15px;
 }
 
-/*print / pdf stylesheet*/
-
-@media screen {
-    .print-only {
-        display:none;
-    }
-}
-
-@media print {
-    .screen-only {
-        display:none;
-    }
+.page-break {
+    page-break-before: always;
 }
 
 .folio {
@@ -84,67 +59,67 @@ i {
 /*over the main page images*/
 
 .news-box {
-position: fixed;
+    position: fixed;
 }
 
 .news-box img {
-width: 100%;
+    width: 100%;
 }
 
 #news
 {
-width: 40%;
-top: 13.5%;
-left:30%;
-background-image:url(background-trans.png);
+    width: 40%;
+    top: 13.5%;
+    left:30%;
+    background-image:url(background-trans.png);
 }
 
 #news2a
 {
-width: 35%;
-top: 10%;
-left:12%;
-background-image:url(background-trans.png);
+    width: 35%;
+    top: 10%;
+    left:12%;
+    background-image:url(background-trans.png);
 }
 
-#news2b
-{
-width: 35%;
-top: 30%;
-right:12%;
-background-image:url(background-trans.png);
+#news2b {
+    width: 35%;
+    top: 30%;
+    right:12%;
+    background-image:url(background-trans.png);
 }
 
-#news2c
-{
-width: 3%;
-top: 75%;
-left: 35%;
-background-image:url(background-trans.png);
+#news2c {
+    width: 3%;
+    top: 75%;
+    left: 35%;
+    background-image:url(background-trans.png);
 }
 
-#news3a
-{
-width: 35%;
-top: 20%;
-left: 7%;
-background-image:url(background-trans.png);
+#news3a {
+    width: 35%;
+    top: 20%;
+    left: 7%;
+    background-image:url(background-trans.png);
 }
 
-#news3b
-{
-width: 35%;
-top: 7%;
-left: 53%;
-background-image:url(background-trans.png);
+#news3b {
+    width: 35%;
+    top: 7%;
+    left: 53%;
+    background-image:url(background-trans.png);
 }
 
-#news3c
-{
-width: 35%;
-bottom: 5%;
-left: 49%;
-background-image:url(background-trans.png);
+#news3c {
+    width: 35%;
+    bottom: 5%;
+    left: 49%;
+    background-image:url(background-trans.png);
+}
+#news-mailing {
+    top: 8%;
+    left: 35%;
+    background-image:url(background-trans.png);
 }
 
 /*collective page styles TO BE CLEANED!! */
@@ -163,21 +138,15 @@ background-image:url(background-trans.png);
     width: 170px;    
 }
 
-.red  {
-    color: #ff2a2a; 
-    text-decoration: none;    
-}
 
-.legend 
-{ 
+.legend { 
     font-family:'Montserrat', sans-serif;
-    font-size: 100%; 
+    font-size: 20px; 
     text-align: center;
 }
 
 /* for the texts in the comments (page collective-editing)*/
-.text
-{ 
+.text { 
     font-family:'Montserrat';
     font-size: 18px; 
     color: #000000;
@@ -189,56 +158,50 @@ background-image:url(background-trans.png);
 	background-color : white;	
 	border: 2px solid #000000;
 	padding: 15px;
-	}
+}
 	
 
-.comment
-{ 
-font-family:'Montserrat';
-font-size: 18px; 
-/*color: #FFF000;*/
+.comment { 
+    font-family:'Montserrat';
+    font-size: 18px; 
+    /*color: #FFF000;*/
 }
 
-.comment-form
-{
+.comment-form {
 	background-color : white;	
 	border: 2px solid #000000;
 	padding: 10px;
 	font-family:'Montserrat';
-font-size: 18px; 
-	}
-
-.center
-{
-display: block;
-margin: 0 auto;
-width: 600px;
+    font-size: 18px; 
 }
 
-.center-pictures
-{
-display: block;
-margin: 0 auto;
-width: 800px;
+.center {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.center-pictures {
+    display: block;
+    margin: 0 auto;
+    width: 800px;
 }
 
 
-.center2
-{
-display: block;
-margin: 0 auto; 
+.center2 {
+    display: block;
+    margin: 0 auto; 
 }
 
-.doublepages
-{
-display: block;
-margin-left: 1px; 
+.doublepages {
+    display: block;
+    margin-left: 1px; 
 }
-
 
 .va-middle {
-vertical-align: middle;
+    vertical-align: middle;
 }
+
 //ON MOUSEOVER
 span.dropt {text-decoration: none;color:#FFF000}
 span.dropt:hover {text-decoration: none;color:#FFF000}
@@ -261,6 +224,14 @@ span.box span {position: relative; left: -9999px;
   margin: 4px 0 0 0px; padding: 3px 3px 3px 3px; }
 span.box:hover span {margin: 20px 0 0 170px; background: #ffffff; z-index:6;}
 
+div.dropt-pastille .pastille {
+    visibility: hidden;
+    position: relative;
+}
+div.dropt-pastille:hover .pastille {
+    visibility: visible;
+    z-index:6;
+}
 
 div.dropt2 div {
     font-size: 22px;
@@ -280,4 +251,99 @@ div.dropt2:hover div {
     z-index:6;
 }
 
+/* PRESS RELEASE */
+/* PR INTRO */
+div.dropt3 div {
+    font-size: 22px;
+    position: relative;
+    left: -9999px;
+    padding: 1px 3px 1px 4px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+    width: 190px;
 }
+div.dropt3:hover div {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    background: #ffffff;
+    z-index:6;
+}
+/* PR COLLABORATORS */
+.press-collab-tab {
+    padding-left: 50px;
+}
+.notmiss { 
+    width: 150px !important;
+    float: left; 
+    margin-top: 15px;
+    margin-right: 20px;
+}
+/* SEE ALSO PRINT STYLESHEET */
+
+/* WORKSHOP DOSSIER */
+.workshop-dossier-img {
+    width: 560px;
+    left: 50%;
+    margin-left: -280px;
+    position: relative;
+}
+
+
+/*print / pdf stylesheet*/
+
+@media screen {
+    .print-only {
+        display:none;
+    }
+    .press-release img {
+        width: 500px;
+    }
+}
+
+@media print {
+    .screen-only {
+        display:none;
+    }
+    .press-release {
+        font-size: 16px;
+        color: black;
+    }
+    .press-release img {
+        width: 300px;
+    }
+    .press-timeline1 {
+        float: left;
+        width: 280px;
+        min-height: 800px;
+        font-size: 14px;
+    }
+    .press-timeline2 {
+        float: left;
+        margin-left: 10px;
+        width: 270px;
+        min-height: 800px;
+        font-size: 14px;
+    }
+    .press-collab-tab {
+        padding-left: 20px;
+    } 
+    .notmiss {
+        width: 100px !important;
+        margin-top: 0px !important;
+        border-style:none;
+    }
+    .workshop-dossier {
+        margin-left: 20px;
+        margin-right: 15px;
+        font-size: 16px;
+    }
+    .workshop-dossier-img {
+        position: relative;
+        width: 300px;
+        left: 50%;
+        margin-left: -150px;
+    }
+}
+

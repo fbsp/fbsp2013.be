@@ -1,25 +1,27 @@
+// create a new separate part in the database called "comments":
 Comments = new Meteor.Collection("comments");
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    if (Comments.find().count() === 0) {
-      var comments = [{
-                        "top": 50,
-                        "left": 50,
-                        "text": 'This is a an example of a commentary',
-                        "author": 'FBSP',
-                        "email": 'info@fbsp2013.be'},
-                    {
-                        "top": 110,
-                        "left": 405,
-                        "text": 'and research project',
-                        "author": 'FBSP',
-                        "email": 'info@fbsp2013.be'},
-                    ];
-      for (var i = 0; i < comments.length; i++)
-        Comments.insert(comments[i]);
-    }
-  });
+    Meteor.startup(function () {
+        if (Comments.find().count() === 0) {
+            var comments = [{
+                // description of the objects to be put in the database:
+                "top": 50,
+                    "left": 50,
+                    "text": 'This is a an example of a commentary',
+                    "author": 'FBSP',
+                    "email": 'info@fbsp2013.be'
+            }, {
+                "top": 110,
+                    "left": 405,
+                    "text": 'and research project',
+                    "author": 'FBSP',
+                    "email": 'info@fbsp2013.be'
+            }, ];
+            for (var i = 0; i < comments.length; i++)
+            Comments.insert(comments[i]);
+        }
+    });
 }
 
 
@@ -27,40 +29,114 @@ if (Meteor.isServer) {
 
 if (Meteor.is_client) {
 
-var Router = Backbone.Router.extend({
-  
-  routes: { '': 'main',
-  ':page': 'main',
-  },
-  main: function(page) {
-    page = page ? page : "main";
-    Session.set('currentPage', page);
-    var frag = Meteor.render(function () {
-                            var i = Template[page] ? Template[page]() : "";
+    var Router = Backbone.Router.extend({
+
+        routes: {
+            '': 'main',
+                ':page': 'main',
+                'platform/': 'platform_home',
+                'platform/:category/': 'platform_category',
+                'platform/themes/:theme': 'platform_theme',
+                'platform/:category/:element': 'platform_element',
+        },
+        main: function (page) {
+            page = page ? page : "main";
+            this.render(page, {});
+        },
+        platform_home: function () {
+            this.render('platform', {
+                "elements": Platform.find({}, {sort: { 
+                //sort the elements from the database: descending order
+                "focus": -1
+                }})
+            });
+        },
+        platform_category: function (category) {
+            var elements = Platform.find({
+                "category": category
+            }, {sort: { 
+                //sort the elements from the database: descending order
+                "focus": -1
+                }});
+            this.render('platform_category', {
+                "category": category,
+                "elements": elements
+            });
+        },
+        platform_element: function (category, elementSlug) {
+            var element = Platform.findOne({
+                "slug": elementSlug
+            });
+            var relatedElements = Platform.find({
+                "slug": {
+                    $ne: elementSlug
+                },
+                "themes": {
+                    $in: element.themes
+                }
+            });
+            this.render('platform_element', {
+                category: category,
+                element: element,
+                "relatedElements": relatedElements
+            });
+        },
+        platform_theme: function (theme) {
+            var elements = Platform.find({
+                "themes": theme
+            }, {sort: { 
+                //sort the elements from the database: descending order
+                "focus": -1
+                }});
+            this.render('platform_theme', {
+                "theme": theme,
+                "elements": elements
+            });
+        },
+        render: function (templateName, context) {
+            console.log(templateName, context);
+
+            // BACKGROUND COLOR YELLOW ON PAGES BEGINNING WITH PLATFORM + NO FOOTER)
+            if (templateName.indexOf("platform") === 0) {
+                $('body').addClass('platform');
+                $('footer').remove();
+            }
+            Session.set('currentPage', templateName);
+            var frag = Meteor.render(function () {
+                var i = Template[templateName] ? Template[templateName](context) : "";
+                return i;
+            });
+            $('div#container').html(frag);
+        }
+
+    });
+
+
+
+    var app = new Router;
+    Meteor.startup(function () {
+        Backbone.history.start({
+            pushState: true
+        });
+    });
+
+    /*Template.fbsp.renderPage = function() {
+    var currentPage = Session.get('currentPage');
+    return Meteor.render(function () {
+                            var i = Template[currentPage] ? Template[currentPage]() : "";
                             return i; });
-    $('div#container').html(frag)
-  },
+}*/
 
-});
+    Template.collective_editing.comments = function () {
+        // ici on va chercher dans le base de données:
+        return Comments.find();
+    };
+    //
 
-
-
-var app = new Router;
-Meteor.startup(function () {
-  Backbone.history.start({pushState: true});
-});
-
-
-Template.collective_editing.comments = function () {
-    // ici on va chercher dans le base de données:
-    return Comments.find();
-  };
-  
-  
-/* to open links in new tabs, but not the internal links
+    /* to open links in new tabs, but not the internal links
      */
-var isExternal = function(href) {
-    /*
+    var isExternal = function (href) {
+        /*
     "-1" = rien trouvé
     "127.0.0.1" = localhost
     "===" = est
@@ -78,84 +154,86 @@ var isExternal = function(href) {
      * isExternal("http://127.0.0.1:8000/publications/")
      * false
      */
-    if (href.indexOf("http") === -1 || href.indexOf(document.location.host) !== -1 || href.indexOf("localhost") !== -1 || href.indexOf("127.0.0.1") !== -1 ) {
-        return false;
-    }
-    return true;
-};
- 
-
-Meteor.startup(function () {
-    $('a').smoothScroll();
-
-$('html').click(function() {
-    $(".news-box").hide()
-});
-
-$('.news-box').click(function(event){
-   event.stopPropagation();
-});
-
-
-// une fois que tout la structure de la page est là: action
-$(document).ready(function() {
-    
-    // action: si c'est externe, on attribue à "ça" une target pour le lien qui est un nouvel onglet 
-    $("a[href]").each(
-    function() { 
-        if (isExternal($(this).attr('href')) ) { 
-            $(this).attr('target', '_blank')
-            }
+        if (href.indexOf("http") === -1 || href.indexOf(document.location.host) !== -1 || href.indexOf("localhost") !== -1 || href.indexOf("127.0.0.1") !== -1) {
+            return false;
         }
-    );
-    
-    // add a new comment
-    $("#collective-editing").click(function(e) {
-        e.preventDefault();
-        // only if there are no other comment forms yet
-        if ($("form.comment-form").length === 0) {
-            var x = e.pageX - this.offsetLeft;
-            var y = e.pageY - this.offsetTop;
-            var popup = $('<form class="comment-form"><span class="comment">Your comment:<br></span><textarea class="required"></textarea><span class="comment"><br>Name:<br></span><input id="author" type="text" name="author" maxlength="100" class="required"><span class="comment"><br>Email (not public):<br></span><input id="email" type="text" name="email" maxlength="100" class="required email"><a href="#" class="submit"><br>Submit</a><a href="#" class="cancel">/Close</a></form>')
-            popup.css('top',y);
-            popup.css('left',x);
+        return true;
+    };
 
-            popup.find("a.submit").click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (popup.valid()) {
-                    Comments.insert(
-                                    {   "left": x,
-                                        "top": y,
-                                        "text": $("textarea").val(),
-                                        "author": $("input#author").val(),
-                                        "email": $("input#email").val()
-                                        }
-                                    );
-                    
-                    popup.remove();
+
+    Meteor.startup(function () {
+        $('a').smoothScroll();
+
+        $('html').click(function () {
+            $(".news-box").hide()
+        });
+
+        $('.news-box').click(function (event) {
+            event.stopPropagation();
+        });
+
+
+        // une fois que tout la structure de la page est là: action
+        $(document).ready(function () {
+
+            // action: si c'est externe, on attribue à "ça" une target pour le lien qui est un nouvel onglet 
+            $("a[href]").each(
+
+            function () {
+                if (isExternal($(this).attr('href'))) {
+                    $(this).attr('target', '_blank')
                 }
             });
-            popup.find("a.cancel").click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                popup.remove();
+            $("#changeimage").click(function () {
+                $("#toggle1").toggle();
+                $("#toggle2").toggle();
             });
-            $(this).append(popup)
-            
-           jQuery("#comment-form").validate(
-      );
-        }
-        
+
+            // add a new comment
+            $("#collective-editing").click(function (e) {
+                e.preventDefault();
+                // only if there are no other comment forms yet
+                if ($("form.comment-form").length === 0) {
+                    var x = e.pageX - this.offsetLeft;
+                    var y = e.pageY - this.offsetTop;
+                    var popup = $('<form class="comment-form"><span class="comment">Your comment:<br></span><textarea class="required"></textarea><span class="comment"><br>Name:<br></span><input id="author" type="text" name="author" maxlength="100" class="required"><span class="comment"><br>Email (not public):<br></span><input id="email" type="text" name="email" maxlength="100" class="required email"><a href="#" class="submit"><br>Submit</a><a href="#" class="cancel">/Close</a></form>')
+                    popup.css('top', y);
+                    popup.css('left', x);
+
+                    popup.find("a.submit").click(function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (popup.valid()) {
+                            Comments.insert({
+                                "left": x,
+                                    "top": y,
+                                    "text": $("textarea").val(),
+                                    "author": $("input#author").val(),
+                                    "email": $("input#email").val()
+                            });
+
+                            popup.remove();
+                        }
+                    });
+                    popup.find("a.cancel").click(function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        popup.remove();
+                    });
+                    $(this).append(popup)
+
+                    jQuery("#comment-form").validate();
+                }
+
+            })
+
+
+
+        });
+
+
+
     })
-    
-
-    
-});
-
-
-
-})
 
 
 }
