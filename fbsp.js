@@ -27,7 +27,7 @@ if (Meteor.isServer) {
 
 
 
-if (Meteor.is_client) {
+if (Meteor.isClient) {
 
     var Router = Backbone.Router.extend({
 

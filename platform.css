@@ -66,6 +66,7 @@ body.platform a, body.platform a:link, body.platform a:hover, body.platform a:vi
     letter-spacing: 10px;
     word-spacing: 5px;
     font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .legend-italic {
