@@ -1,0 +1,130 @@
+// SPECIFIC FOR PAGE
+@row-height: 20vh;
+@row-height-big: 28vh;
+@row-height-small: 17vh;
+/* vh = vertical height of the browser */
+.table-element-vertical-box {
+    p {
+        color: transparent;
+    }
+}
+.table-elements {
+    margin-bottom: 100px;
+}
+.table-element-row {
+    border: 2px solid black; 
+    border-top: 0px; 
+    width: 100%; 
+    height: @row-height;  
+    overflow-y: hidden;
+    overflow-x: hidden; 
+    position: relative;
+}
+.table-element-row-small {
+    border: 2px solid black; 
+    border-top: 0px; 
+    width: 100%; 
+    height: @row-height-small;  
+    overflow-y: hidden;
+    overflow-x: hidden; 
+    position: relative;
+}
+.table-element-row-big {
+    border: 2px solid black; 
+    border-top: 0px; 
+    width: 100%; 
+    height: @row-height-big;  
+    overflow-y: hidden;
+    overflow-x: hidden; 
+    position: relative;
+}
+.table-element-schemes {
+    position: absolute;
+    width: 100%; 
+    height: @row-height;
+    top: 0px;
+    left: 0px;
+    overflow-y: hidden; 
+}
+.table-element-schemes-small {
+    position: absolute;
+    width: 100%; 
+    height: @row-height-small;
+    top: 0px;
+    left: 0px;
+    overflow-y: hidden; 
+}
+.table-element-schemes-big {
+    position: absolute;
+    width: 100%; 
+    height: @row-height-big;
+    top: 0px;
+    left: 0px;
+    overflow-y: hidden; 
+}
+
+.nav_container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.image_thumbnails {
+    height: 100%;
+    border-right: 2px solid black;
+}
+.image_thumbnails_last {
+    height: 100%;
+    border-right: 0px;
+}
+.prev_nav {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1000;
+    display: table;
+    p {
+        font-size: 30px;
+        display: table-cell; 
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+.next_nav {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1000;
+    display: table;
+    p {
+        font-size: 30px;
+        display: table-cell; 
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+.nav {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    border-right: 0px;
+    float: left;
+    height: 100%;
+}
+.nav li {
+    height: 100%;
+    display: inline-block;
+    list-style: none;
+}
+
+.nav img {
+    display: block;
+}

@@ -1,21 +1,24 @@
 <template name="platform_theme">
 
-    <div id="container" class="clearfix">
+    <div id="platform-container" class="clearfix">
         {{> toolbox }}
     </div>
 
+<div class="platform-content">
 
 <!-- Fait appel à la function JavaScript Template.collective_editing.comments -->
 {{#each elements}}
 <a href="/platform/{{ category }}/{{ slug }}">
-<div class="box {{ category }}">
-    <p class="title">{{ title }}</p>
-       <p class="text">{{{ content }}}</p>
-       <p class="text">{{ author }}</p>
-       <p class="text">{{ category }}</p>
+<div class="box {{ class }}">
+    <table class="table-platform">
+    <tr><td><p class="text-platform-category">{{ category }}</p></td><td class="platform-box-icon"><img src="/microBook.png"></td></td></tr></table>
+    <div class="platform-title">{{{ title }}}</div>
+       <p class="text-platform-content">{{{ content }}}</p>
+       <img src="{{{ img-src }}}" class="platform-img-medium">
+       <p class="text-platform-legend">{{{ legend }}}</p>
 </div></a>
 {{/each}}
 
-
+</div> <!-- end div platform content -->
 
 </template>

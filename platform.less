@@ -1,0 +1,261 @@
+
+@font-face {
+    font-family:'Crimson';
+    src: url("font/CrimsonText-Roman.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Crimson';
+    src: url("font/CrimsonText-Italic.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Crimson';
+    src: url("font/CrimsonText-Semibold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Crimson';
+    src: url("font/CrimsonText-SemiboldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Charis';
+    src: url("font/CharisSIL-R.ttf");
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Charis';
+    src: url("font/CharisSIL-I.ttf");
+    font-style: italic;
+}
+
+/* SEE FBSP.JS router section */
+body.platform {
+    font-family:'Montserrat', sans-serif;
+    font-size: 20px;
+    color: black;
+    padding: 12px;
+    background-color: #FFF000;
+}
+body.platform a, body.platform a:link, body.platform a:hover, body.platform a:visited {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+/* GENERAL LAYOUT */
+#platform-container {
+    float: left;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+.platform-content {
+    position: absolute;
+    margin-left: 102px;
+    margin-top: -5px;
+}
+
+/* FONTS */
+
+.shout {
+    font-family: 'Montserrat-contre';
+    font-style: italic;
+}
+
+.italic {
+    font-family: 'Montserrat';
+    font-style: italic;
+}
+.legend-italic {
+    font-family: 'Charis';
+    font-style: italic;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.legend-platform {
+    font-family: 'Charis';
+    font-style: normal;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.charis {
+    font-family: 'Charis';
+    font-style: normal;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.charis-italic {
+    font-family: 'Charis';
+    font-style: italic;
+    letter-spacing: 2px;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+
+/* BOXES: UPPER PART */
+.table-platform {
+    width: 100%;
+    margin-top: -5px;
+}
+/* BOXES: RIGHT UPPER PART CATEGORY */
+.platform-box-icon {
+    width: 35px;
+}
+/* BOXES: LEFT UPPER PART CATEGORY */
+.text-platform-category { 
+    font-family:'Montserrat';
+    font-size: 14px;
+    color: #000000;
+    text-transform: uppercase;
+    min-width: 150px;
+}
+/* BOXES: TITLE */
+.platform-title {
+    font-family: 'Crimson';
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 8px;
+    word-spacing: 5px;
+    font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+/* BOXES: CONTENT */
+.text-platform-content { 
+    font-family:'Montserrat';
+    font-size: 20px; 
+    color: #000000;
+}
+/* BOXES IN SINGLE ELEMENTS PAGES */
+.text-platform-author { 
+    font-family:'Montserrat';
+    font-size: 14px;
+    color: #000000;
+    text-align:right;
+}
+
+
+/* BOXES: GENERAL */
+.box {
+    margin: 12px;
+    padding: 10px 10px 14px 14px;
+    border: 3px solid #000000;
+    box-shadow: 5px 5px 5px black;
+    float: left;
+    width: 882px;
+    background-color: white;
+}
+/* BOXES: SPECIFIC FORMATS */
+@platform-box-width: 320px;
+@platform-box-gutter: 24px;
+
+.platform-intro-box {
+    width: ((2*@platform-box-width) + @platform-box-gutter) - (81px + @platform-box-gutter);
+    float: left;
+}
+.platform-big-box {
+    width: (2*@platform-box-width) + (@platform-box-gutter);
+    float: left;
+}
+.platform-medium-box {
+    width: (1*@platform-box-width);
+    height: 390px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+.ellipsis {
+    max-height: 200px;
+}
+.platform-tiny-box {
+    width: 81px;
+}
+
+
+
+
+/* IMAGES */
+.platform-img-big {
+    max-width: 2*@platform-box-width - (2*@platform-box-gutter);
+}
+.platform-img-medium {
+    width: @platform-box-width - (2*@platform-box-gutter);
+}
+.platform-img-ellipsis {
+    max-width: @platform-box-width - (2*@platform-box-gutter);
+    max-height: 250px;
+}
+
+
+/**** Clearfix ****/
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+/**** TOOLBOX ****/
+#toolbox {
+    margin: 12px 12px 12px 12px;
+    width: 78px;
+}
+#table1 {
+    background-color: white;
+    border: 3px solid #000000;
+    border-collapse: collapse;
+}
+
+#table1 td {
+    border: 3px solid #000000;
+}
+
+/**** mouseover on the toolbox ****/
+span.dropt-tool span {
+    position: absolute;
+    display: none;
+    padding: 1px 3px 1px 4px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+}
+span.dropt-tool:hover span {
+    display: initial;
+    left: 40px;
+    margin: 30px 0 0 25px;
+    background: #ffffff;
+    z-index:6;
+}
+span.dropt-tool2 span {
+    position: absolute;
+    display: none;
+    padding: 1px 3px 1px 4px;
+    border-style:solid;
+    border-color:black;
+    border-width:3px;
+}
+span.dropt-tool2:hover span {
+    display: initial;
+    left: 40px;
+    margin: 30px 0 0 65px;
+    background: #ffffff;
+    z-index:6;
+}
+
+
+

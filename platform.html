@@ -1,55 +1,33 @@
 <template name="platform">
 
-    <div id="container" class="clearfix">
+    <div id="platform-container" class="clearfix">
         {{> toolbox }}
     </div>
 
+<div class="platform-content">
 
-<div class="box col-intro">
-<p class="title">Dears,</p><br>
-someone add Welcome on this platform dedicated to contemporary independent publishing, aiming to activate that scene, open it, connect different practices. 
-It proposes a space for different forms of research on and through publishing. Its role is that of a structure that relays, supports, encourages. A platform for diffusion in a broad sense.
-<br>Here you will soon find reviews, essays, stories, diagrams, pictures, videos, and other forms of (critical and speculative) writing and thinking upon publishing practices.
+<div class="box platform-intro-box">
+    <div class="platform-title">Welcome,</div>
+    <p class="text-platform-content">This platform brings together a series of workshops dedicated to contemporary forms of publishing: <a href="/">FBSP workshops</a>. <br>The platform and the workshops aim at building an active network of book makers and researchers and connect different practices. It proposes a space for different forms of research on and through publishing. Its role is that of a structure that relays, supports, encourages. A platform for diffusion in a broad sense. <br>Here you will soon find reviews, essays, stories, diagrams, pictures, videos, and other forms of (critical and speculative) writing and thinking upon publishing practices.</p>
 </div>
 
-<div class="box col1">
-B O 
-<br>O K 
-<br>S
+<div class="box platform-tiny-box">
+B O<br>O K<br>S
 </div>
-
-<div class="box col-small">
-Concerns, connect, compose with:<br>
-Authors, artists, writers, theoreticians, editors, graphic designers, printers, distributors, booksellers, readers…
-</div>
-
 
 <!-- Fait appel à la function JavaScript Template.collective_editing.comments -->
 {{#each elements}}
-<div class="box {{ class }}">
-    <p class="title">{{ title }}</p>
-       <p class="text">{{{ content }}}</p>
-       <p class="text">{{ author }}</p>
-       <p class="text">{{ category }}</p>
-</div>
+<a href="/platform/{{ category }}/{{ slug }}">
+<div class="box platform-medium-box">
+    <table class="table-platform">
+    <tr><td><p class="text-platform-category">{{ category }}</p></td><td class="platform-box-icon"><img src="/microBook.png"></td></tr></table>
+    <div class="platform-title">{{{ title }}}</div>
+       <p class="text-platform-content">{{{ summary }}}</p>
+       <img src="{{{ img-src }}}" class="platform-img-ellipsis">
+       <p class="text-platform-legend">{{{ legend }}}</p>
+</div></a>
 {{/each}}
 
-<div class="box col-small"> 
-Mixes different forms of writing or forms of publishing: essays, reviews, drawings, diagrams, lists…
-</div>
-
-<div class="box col-small"> 
-The platform is curated by a group of researchers…
-</div>
-
-<div class="box col-small"> 
-See:<br>
-Support Structure
-</div>
-
-<div class="box col-big"> 
-<img src="/La Grant Dance Macabre, printed by Matthias Huss, Lyons, 1499.jpg" class="big">
-<p class="legend-platform"><i class="legend-italic">La Grande Danse Macabre</i>, Matthias Huss, Lyon, 1499</p>
-</div>
+</div> <!-- end div platform content -->
 
 </template>

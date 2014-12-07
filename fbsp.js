@@ -36,7 +36,7 @@ if (Meteor.isClient) {
                 ':page': 'main',
                 'platform/': 'platform_home',
                 'platform/:category/': 'platform_category',
-                'platform/themes/:theme': 'platform_theme',
+                'platform/:themes/:theme': 'platform_theme',
                 'platform/:category/:element': 'platform_element',
         },
         main: function (page) {
@@ -64,22 +64,8 @@ if (Meteor.isClient) {
             });
         },
         platform_element: function (category, elementSlug) {
-            var element = Platform.findOne({
-                "slug": elementSlug
-            });
-            var relatedElements = Platform.find({
-                "slug": {
-                    $ne: elementSlug
-                },
-                "themes": {
-                    $in: element.themes
-                }
-            });
-            this.render('platform_element', {
-                category: category,
-                element: element,
-                "relatedElements": relatedElements
-            });
+            Session.set("elementSlug", elementSlug);
+            this.render('platform_element', {});
         },
         platform_theme: function (theme) {
             var elements = Platform.find({
@@ -101,6 +87,7 @@ if (Meteor.isClient) {
                 $('body').addClass('platform');
                 $('footer').remove();
             }
+            
             Session.set('currentPage', templateName);
             var frag = Meteor.render(function () {
                 var i = Template[templateName] ? Template[templateName](context) : "";
@@ -112,20 +99,27 @@ if (Meteor.isClient) {
     });
 
 
+    Template.platform_element.element = function () {
+        return  Platform.findOne({
+                "slug": Session.get("elementSlug")
+            });
+    };
 
-    var app = new Router;
-    Meteor.startup(function () {
-        Backbone.history.start({
-            pushState: true
-        });
-    });
-
-    /*Template.fbsp.renderPage = function() {
-    var currentPage = Session.get('currentPage');
-    return Meteor.render(function () {
-                            var i = Template[currentPage] ? Template[currentPage]() : "";
-                            return i; });
-}*/
+    Template.platform_element.relatedElements = function () {
+        var element =  Platform.findOne({
+                "slug": Session.get("elementSlug")
+            });
+        if (element) {    
+            return Platform.find({
+                    "slug": {
+                        $ne: element.slug
+                    },
+                    "themes": {
+                        $in: element.themes
+                    }
+                });
+        }
+    };
 
     Template.collective_editing.comments = function () {
         // ici on va chercher dans le base de données:
@@ -160,7 +154,15 @@ if (Meteor.isClient) {
         return true;
     };
 
+    var app = new Router;
+    
+    Meteor.startup(function () {
+        Backbone.history.start({
+            pushState: true
+        });
+    });
 
+    
     Meteor.startup(function () {
         $('a').smoothScroll();
 
@@ -175,6 +177,10 @@ if (Meteor.isClient) {
 
         // une fois que tout la structure de la page est là: action
         $(document).ready(function () {
+            //js plugin dotdotdot http://dotdotdot.frebsite.nl/
+            $(".ellipsis").dotdotdot({
+                //  configuration goes here
+            });
 
             // action: si c'est externe, on attribue à "ça" une target pour le lien qui est un nouvel onglet 
             $("a[href]").each(
@@ -206,10 +212,10 @@ if (Meteor.isClient) {
                         if (popup.valid()) {
                             Comments.insert({
                                 "left": x,
-                                    "top": y,
-                                    "text": $("textarea").val(),
-                                    "author": $("input#author").val(),
-                                    "email": $("input#email").val()
+                                "top": y,
+                                "text": $("textarea").val(),
+                                "author": $("input#author").val(),
+                                "email": $("input#email").val()
                             });
 
                             popup.remove();
@@ -226,10 +232,41 @@ if (Meteor.isClient) {
                 }
 
             })
+            $(document).ready(function () {
+                $('.sp').first().addClass('active');
+                $('.sp').hide();
+                $('.active').show();
+                $('.sp').click(function () {
+                    $('.active').removeClass('active').addClass('oldActive');
+                    if ($('.oldActive').is(':last-child')) {
+                        $('.sp').first().addClass('active');
+                    } else {
+                        $('.oldActive').next().addClass('active');
+                    }
+                    $('.oldActive').removeClass('oldActive');
+                    $('.sp').fadeOut(50);
+                    $('.active').fadeIn(50);
+                });
+                
+                /* < horizontal scrolling > */
+                $('.next_nav').click(function () {
+                $(this).nextAll(".nav").animate({
+                        scrollLeft: '+=400px'
+                    });
+                });
+                $('.prev_nav').click(function () {
+                    $(this).nextAll(".nav").animate({
+                        scrollLeft: '-=400px'
+                    });
+                });
+                /* DOC READY */
+                   
+            });
 
 
 
         });
+        
 
 
 
