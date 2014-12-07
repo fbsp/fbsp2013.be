@@ -10,13 +10,13 @@ if (Meteor.isServer) {
                     "left": 50,
                     "text": 'This is a an example of a commentary',
                     "author": 'FBSP',
-                    "email": 'info@fbsp2013.be'
+                    "email": 'info@fbsp.net'
             }, {
                 "top": 110,
                     "left": 405,
                     "text": 'and research project',
                     "author": 'FBSP',
-                    "email": 'info@fbsp2013.be'
+                    "email": 'info@fbsp.net'
             }, ];
             for (var i = 0; i < comments.length; i++)
             Comments.insert(comments[i]);
